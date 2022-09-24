@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import List from "./list";
 
 function App() {
     const [dataArr, setArr] = useState([]);
@@ -8,7 +9,7 @@ function App() {
     const inpChng = (event) => setInp(event.target.value);
 
     const addItem = () => {
-        if (inp === '') return;
+        if(inp === '') return;
         setArr((prevarr) => {
             return [...prevarr, inp]
         });
@@ -25,13 +26,7 @@ function App() {
                     <span>Add</span>
                 </button>
             </div>
-            <div>
-                <ul>
-                    {dataArr.map((i) => {
-                        return <li>{i}</li>
-                    })}
-                </ul>
-            </div>
+            <List arr={dataArr} />
         </div>
     );
 }
